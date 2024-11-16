@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import expression.*;
 
-class LatexParserTest {
+class StringParserTest {
 	String input;
-	LatexParser parser = new LatexParser();
+	StringParser parser = new StringParser();
 	Expression result;
 	Fraction goal;
 
@@ -35,5 +35,12 @@ class LatexParserTest {
 		input = "1+2\\cdot3-5";
 		result = parser.readString(input);
 		assertEquals("((1+(2*3))-5)",result.toString());
+	}
+	
+	@Test
+	void testParenthesis1() {
+		input = "(1+2)*3*[1+2]";
+		result = parser.readString(input);
+		assertEquals("((1+2)*(3*(1+2)))",result.toString());
 	}
 }

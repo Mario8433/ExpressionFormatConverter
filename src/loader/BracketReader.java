@@ -9,7 +9,7 @@ public class BracketReader {
 		this.close = close;
 	}
 	
-	public String parseString(String inputString) {
+	public String readBrackets(String inputString) {
 		int openCount = 1; // Assume this string excludes the first open bracket
 		
 		for (int i = 0; i<inputString.length(); i++) {

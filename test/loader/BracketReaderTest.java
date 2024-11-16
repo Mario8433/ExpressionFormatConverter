@@ -12,7 +12,7 @@ class BracketReaderTest {
 		BracketReader obj1 = new BracketReader('(',')');
 		
 		input = "www()+()+()+)w(w)(1212)";
-		assertEquals("www()+()+()+",obj1.parseString(input));
+		assertEquals("www()+()+()+",obj1.readBrackets(input));
 	}
 	
 	@Test
@@ -20,7 +20,7 @@ class BracketReaderTest {
 		BracketReader obj1 = new BracketReader('(',')');
 		
 		input = "((()(()))(()(()))))(()()(()))";
-		assertEquals("((()(()))(()(())))",obj1.parseString(input));
+		assertEquals("((()(()))(()(())))",obj1.readBrackets(input));
 	}
 	
 	@Test
@@ -28,7 +28,7 @@ class BracketReaderTest {
 		BracketReader obj1 = new BracketReader('(',')');
 		
 		input = ")))))))))))))";
-		assertEquals("",obj1.parseString(input));
+		assertEquals("",obj1.readBrackets(input));
 	}
 
 

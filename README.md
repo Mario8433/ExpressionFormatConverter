@@ -16,6 +16,9 @@ Supports from LaTeX to plain format.
 Supports operator `+`,`-`,`*`,`\frac{}{}`.
 Supports operand integers.
 
+14 November 2024 α0.0.2
+Supports `/` and parenthesis.
+
 # Usage
 
 Install Java JDK 23.

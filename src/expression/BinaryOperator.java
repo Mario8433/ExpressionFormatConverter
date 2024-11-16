@@ -3,40 +3,44 @@ package expression;
 public abstract class BinaryOperator extends Expression {
 	protected Expression first;
 	protected Expression second;
-	protected int precedence;
+	protected String symbol;
 	
-	protected boolean asOperator;
+	protected int precedence;
 	
 	public BinaryOperator() {
 		first = null;
 		second = null;
 		setPrecedence();
-		asOperator = true;
+		setSymbol();
 	}
 	
 	public BinaryOperator(Expression first, Expression second) {
 		this.first = first;
 		this.second = second;
 		setPrecedence();
-		asOperator = false;
+		setSymbol();
 	}
 	
 	public void fill(Expression first, Expression second) {
 		this.first = first;
 		this.second = second;
-		asOperator = false;
 	}
 	
 	public boolean isOperator() {
-		return asOperator;
+		return first == null && second == null;
 	}
 	
 	public int getPrecedence() {
 		return precedence;
 	}
 	
-	protected abstract void setPrecedence();	
-	
 	@Override
-	public abstract String toString();
+	public String toString() {
+		if (isOperator()) return symbol;
+		return "(" + first + symbol + second + ")";
+	}
+	
+	protected abstract void setPrecedence();	
+	protected abstract void setSymbol();
+	
 }
